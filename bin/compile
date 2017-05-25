@@ -155,6 +155,7 @@ echo "**************************"
 cd $BUILD_DIR/.heroku/node/xvfb-run
 echo $(ls)
 echo "**************************"
+export PATH="/tmp/staged/app/.heroku/node/"
 
 restore_cache() {
   local cache_status="$(get_cache_status)"
