@@ -155,7 +155,10 @@ echo "**************************"
 cd $BUILD_DIR/$ARCHIVE_NAME/usr/bin
 echo $(ls)
 echo "**************************"
-# export PATH="/tmp/staged/app/.heroku/node/"
+export PATH="$BUILD_DIR/$ARCHIVE_NAME/usr/bin/"
+echo $PATH
+echo "**************************"
+
 
 restore_cache() {
   local cache_status="$(get_cache_status)"
