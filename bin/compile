@@ -69,7 +69,7 @@ echo "$BP_DIR = $$BP_DIR"
 
 mkdir -p $BUILD_DIR/.heroku/node/
 cd $BUILD_DIR
-export PATH="$BUILD_DIR/.heroku/node/bin:$BUILD_DIR/xvfb/usr/bin:/home/vcap/app/bin":$PATH
+export PATH=$BUILD_DIR/.heroku/node/bin:$BUILD_DIR/xvfb/usr/bin:/home/vcap/app/bin:$PATH
 
 # CF Common
 export BUILDPACK_PATH=$BP_DIR
@@ -155,7 +155,7 @@ echo "**************************"
 cd $BUILD_DIR/$ARCHIVE_NAME/usr/bin
 echo $(ls)
 echo "**************************"
-export PATH="$BUILD_DIR/$ARCHIVE_NAME/usr/bin:$PATH"
+export PATH=$BUILD_DIR/$ARCHIVE_NAME/usr/bin:$PATH
 echo $PATH
 cd /home/vcap/app/
 mkdir .heroku
@@ -166,7 +166,7 @@ mkdir bin
 cd bin
 echo "111**************************"
 cp $BUILD_DIR/$ARCHIVE_NAME/usr/bin/* /home/vcap/app/.heroku/node/bin
-export PATH="/home/vcap/app/.heroku:$PATH"
+export PATH=/home/vcap/app/.heroku:$PATH
 cd /home/vcap/app/.heroku/node/bin
 echo $(ls)
 echo "**************************"
