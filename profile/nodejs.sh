@@ -35,7 +35,7 @@ export ELECTRON_ENABLE_STACK_DUMPING=true
 echo " "
 echo "nodejs.sh path= $PATH" 
 echo " "
-cd /home/vcap/app/bin
+cd /home/vcap/app/.heroku/node/bin
 echo "----"
 echo $(ls)
 echo "----"
