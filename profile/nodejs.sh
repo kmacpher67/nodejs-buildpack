@@ -39,6 +39,7 @@ cd $HOME/.heroku/node/bin
 echo "----"
 echo $(ls)
 echo $(pwd)
+echo $(cat /home/vcap/app/xvfb/usr/bin/xvfb-run)
 echo "----"
 
 calculate_concurrency
