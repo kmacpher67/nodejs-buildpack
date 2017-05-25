@@ -35,6 +35,7 @@ install_nodejs() {
   echo "+++++++++++++++++++++++++++"
   cd $dir
   echo $(ls)
+  echo $(pwd)
   chmod +x $dir/bin/*
 }
 
