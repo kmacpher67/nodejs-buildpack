@@ -46,6 +46,9 @@ restore_cache_directories() {
       echo "- $cachepath (exists - skipping)"
     else
       if [ -e "$cache_dir/node/$cachepath" ]; then
+        echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
+        echo $cache_dir
+        echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
         echo "- $cachepath"
         mkdir -p $(dirname "$build_dir/$cachepath")
         mv "$cache_dir/node/$cachepath" "$build_dir/$cachepath"
