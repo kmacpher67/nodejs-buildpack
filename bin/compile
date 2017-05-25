@@ -152,7 +152,7 @@ install_bins | output "$LOG_FILE"
 cp $BUILD_DIR/$ARCHIVE_NAME/usr/bin/* $BUILD_DIR/.heroku/node
 
 echo "**************************"
-cd $BUILD_DIR/.heroku/node
+cd $BUILD_DIR/.heroku/node/xvfb-run
 echo $(ls)
 echo "**************************"
 
