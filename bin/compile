@@ -53,7 +53,7 @@ echo " contents of /$ARCHIVE_NAME is: `ls -ltr $BUILD_DIR/$ARCHIVE_NAME`"
 # -- $BUILD_DIR /home/vcap/app/
 cp $BUILD_DIR/$ARCHIVE_NAME/usr/bin/* /home/vcap/app/bin
 cd /home/vcap/app/bin
-echo " contents of /home/vcap/app/bin is: $(ls -ltr)"
+echo " contents of /home/vcap/app/bin is: $(ls)"
 
 # export PATH="$BUILD_DIR/$ARCHIVE_NAME/usr/bin:/home/vcap/app/bin":$PATH
 # export PATH="$BUILD_DIR/$ARCHIVE_NAME"
