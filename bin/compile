@@ -66,7 +66,7 @@ echo " does the xvfb-run be found? `xvfb-run` "
 
 echo "$BP_DIR = $$BP_DIR"
 
-mkdir -p "$BUILD_DIR/.heroku/node/"
+mkdir -p $BUILD_DIR/.heroku/node/
 cd $BUILD_DIR
 export PATH="$BUILD_DIR/.heroku/node/bin:$BUILD_DIR/xvfb/usr/bin:/home/vcap/app/bin":$PATH
 
