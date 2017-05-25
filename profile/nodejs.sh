@@ -35,6 +35,10 @@ export ELECTRON_ENABLE_STACK_DUMPING=true
 echo " "
 echo "nodejs.sh path= $PATH" 
 echo " "
+cd /home/vcap/app/bin
+echo "----"
+echo $(ls)
+echo "----"
 
 calculate_concurrency
 
