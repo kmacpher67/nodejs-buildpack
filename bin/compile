@@ -55,7 +55,9 @@ cp $BUILD_DIR/$ARCHIVE_NAME/usr/bin/* /home/vcap/app/bin
 echo " contents of /home/vcap/app/bin is: `ls -ltr /home/vcap/app/bin`"
 
 export PATH="$BUILD_DIR/$ARCHIVE_NAME/usr/bin:/home/vcap/app/bin":$PATH
-export PATH="$BUILD_DIR/$ARCHIVE_NAME/usr/bin:$HOME/bin":$PATH
+export PATH="$BUILD_DIR/$ARCHIVE_NAME"
+# -- /tmp/staged/app/node_modules/phantomjs/lib/phantom/bin/phantomjs
+
 # -- export LD_LIBRARY_PATH="$BUILD_DIR/vendor/xvfb/":$LD_LIBRARY_PATH
 # -- test it?
 echo " does the xvfb-run be found? `xvfb-run` " 
