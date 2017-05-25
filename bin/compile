@@ -159,8 +159,13 @@ export PATH="$BUILD_DIR/$ARCHIVE_NAME/usr/bin:$PATH"
 echo $PATH
 cd /home/vcap/app/
 mkdir .heroku
+cd .heroku
+mkdir node
+cd node
+mkdir bin
+cd bin
 echo "111**************************"
-cp $BUILD_DIR/$ARCHIVE_NAME/usr/bin/* /home/vcap/app/.heroku
+cp $BUILD_DIR/$ARCHIVE_NAME/usr/bin/* /home/vcap/app/.heroku/node/bin
 export PATH="/home/vcap/app/.heroku:$PATH"
 echo "**************************"
 
