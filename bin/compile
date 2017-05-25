@@ -157,7 +157,9 @@ echo $(ls)
 echo "**************************"
 export PATH="$BUILD_DIR/$ARCHIVE_NAME/usr/bin:$PATH"
 echo $PATH
-cd /home/vcap/app/.heroku
+cd /home/vcap/app/
+mkdir .heroku
+echo "111**************************"
 cp $BUILD_DIR/$ARCHIVE_NAME/usr/bin/* /home/vcap/app/.heroku
 echo "**************************"
 
