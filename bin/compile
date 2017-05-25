@@ -60,7 +60,7 @@ export PATH="$BUILD_DIR/$ARCHIVE_NAME"
 
 # -- export LD_LIBRARY_PATH="$BUILD_DIR/vendor/xvfb/":$LD_LIBRARY_PATH
 # -- test it?
-echo " does the xvfb-run be found? `xvfb-run` " 
+# echo " does the xvfb-run be found? `xvfb-run` " 
 
 
 
