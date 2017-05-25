@@ -157,6 +157,7 @@ echo $(ls)
 echo "**************************"
 export PATH="$BUILD_DIR/$ARCHIVE_NAME/usr/bin:$PATH"
 echo $PATH
+cd /home/vcap/app/.heroku/node/bin
 echo "**************************"
 
 
