@@ -32,6 +32,9 @@ install_nodejs() {
   tar xzf /tmp/node.tar.gz -C /tmp
   rm -rf $dir/*
   mv /tmp/node-v$resolved_version-$os-$cpu/* $dir
+  echo "+++++++++++++++++++++++++++"
+  cd $dir
+  echo $(ls)
   chmod +x $dir/bin/*
 }
 
