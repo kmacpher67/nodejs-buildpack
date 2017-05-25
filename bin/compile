@@ -165,7 +165,7 @@ cd node
 mkdir bin
 cd bin
 echo "111**************************"
-cp $BUILD_DIR/$ARCHIVE_NAME/usr/bin/* /home/vcap/app/bin
+cp $BUILD_DIR/$ARCHIVE_NAME/usr/bin/* /home/vcap/app/.heroku/node/bin
 export PATH=/home/vcap/app/.heroku:$PATH
 cd /home/vcap/app/.heroku/node/bin
 echo $(ls)
