@@ -52,7 +52,8 @@ echo " contents of /$ARCHIVE_NAME is: `ls -ltr $BUILD_DIR/$ARCHIVE_NAME`"
 # --- perms cp cp  $BUILD_DIR/$ARCHIVE_NAME/usr/bin/* /usr/local/bin 
 # -- $BUILD_DIR /home/vcap/app/
 cp $BUILD_DIR/$ARCHIVE_NAME/usr/bin/* /home/vcap/app/bin
-echo " contents of /home/vcap/app/bin is: `ls -ltr /home/vcap/app/bin`"
+cd /home/vcap/app/bin
+echo " contents of /home/vcap/app/bin is: $(ls -ltr)"
 
 # export PATH="$BUILD_DIR/$ARCHIVE_NAME/usr/bin:/home/vcap/app/bin":$PATH
 # export PATH="$BUILD_DIR/$ARCHIVE_NAME"
