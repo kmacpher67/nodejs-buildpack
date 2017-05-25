@@ -26,7 +26,7 @@ detect_memory() {
   esac
 }
 
-export PATH="$HOME/.heroku/node/bin:$PATH:$HOME/bin:$HOME/node_modules/.bin"
+export PATH="$HOME/.heroku/node/bin:$PATH:$HOME/bin:$HOME/node_modules/.bin:/usr/local/bin"
 export NODE_HOME="$HOME/.heroku/node"
 export NODE_ENV=${NODE_ENV:-production}
 export ELECTRON_ENABLE_LOGGING=true
