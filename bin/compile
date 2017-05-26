@@ -215,13 +215,14 @@ for DEB in $(ls -1 $APT_CACHE_DIR/archives/*.deb); do
   dpkg -x $DEB $BUILD_DIR/.apt/
 done
 
-if [ ! -z ${LD_LIBRARY_PATH:-} ];
+topic "checking  unbound variables for LD_LIBRARY_PATH && LIBRARY_PATH"
+if [ -z ${LD_LIBRARY_PATH:-} ];
  then
  echo "LD_LIBRARY_PATH"
  LD_LIBRARY_PATH="";
 fi
 
-if [ ! -z ${LIBRARY_PATH:-} ];
+if [ -z ${LIBRARY_PATH:-} ];
  then
  echo "yo"
  LIBRARY_PATH="";
