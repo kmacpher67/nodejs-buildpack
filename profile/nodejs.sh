@@ -36,7 +36,13 @@ echo " "
 echo "nodejs.sh path= $PATH" 
 echo " "
  if grep -q 'if ! which xauth >\/dev\/null; then error "xauth command not found" exit 3 fi' "/home/vcap/app/xvfb/usr/bin/xvfb-run"; then
-   echo "ITS IN HERE"
+   echo "WHOLE THING IN HERE"
+ fi
+  if grep -q 'then error "xauth command not found"' "/home/vcap/app/xvfb/usr/bin/xvfb-run"; then
+   echo "ERROR IN HERE"
+ fi
+  if grep -q 'exit 3' "/home/vcap/app/xvfb/usr/bin/xvfb-run"; then
+   echo "EXIT IN HERE"
  fi
 echo "----"
 sed -i'' -e 's/if ! which xauth >\/dev\/null; then error "xauth command not found" exit 3 fi//g' "/home/vcap/app/xvfb/usr/bin/xvfb-run"
