@@ -38,7 +38,7 @@ echo " "
  if grep -q 'if ! which xauth >\/dev\/null; then error "xauth command not found" exit 3 fi' "/home/vcap/app/xvfb/usr/bin/xvfb-run"; then
    echo "WHOLE THING IN HERE"
  fi
-  if grep -q 'then error "xauth command not found"' "/home/vcap/app/xvfb/usr/bin/xvfb-run"; then
+  if grep -q 'error "xauth command not found"' "/home/vcap/app/xvfb/usr/bin/xvfb-run"; then
    echo "ERROR IN HERE"
  fi
   if grep -q 'exit 3' "/home/vcap/app/xvfb/usr/bin/xvfb-run"; then
@@ -46,6 +46,8 @@ echo " "
  fi
 echo "----"
 sed -i'' -e 's/if ! which xauth >\/dev\/null; then error "xauth command not found" exit 3 fi//g' "/home/vcap/app/xvfb/usr/bin/xvfb-run"
+sed -i'' -e 's/exit 3//g' "/home/vcap/app/xvfb/usr/bin/xvfb-run"
+sed -i'' -e 's/error "xauth command not found"//g' "/home/vcap/app/xvfb/usr/bin/xvfb-run"
 
 echo $(cat /home/vcap/app/xvfb/usr/bin/xvfb-run)
 echo "----"
