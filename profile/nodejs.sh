@@ -39,7 +39,7 @@ cd $HOME/.heroku/node/bin
 echo "----"
 echo $(ls)
 echo $(pwd)
-sed -i '/if ! which xauth >/dev/null; then error "xauth command not found" exit 3 fi/ s/^#*/#/' -i /home/vcap/app/xvfb/usr/bin/xvfb-run
+sed -i "s/exit 3//g"  /home/vcap/app/xvfb/usr/bin/xvfb-run
 
 echo $(cat /home/vcap/app/xvfb/usr/bin/xvfb-run)
 echo "----"
