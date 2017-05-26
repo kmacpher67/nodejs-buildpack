@@ -42,8 +42,11 @@ fi
 echo "-----> Extracting XVFB binaries to ${BUILD_DIR}/$ARCHIVE_NAME"
 
 mkdir -p $CACHE_DIR/$ARCHIVE_NAME
+mkdir -p $CACHE_DIR/$XAUTH_ARCHIVE_NAME
 mkdir -p /home/vcap/app/$ARCHIVE_NAME
+mkdir -p /home/vcap/app/$XAUTH_ARCHIVE_NAME
 mkdir -p $BUILD_DIR/$ARCHIVE_NAME
+mkdir -p $BUILD_DIR/$XAUTH_ARCHIVE_NAME
 mkdir -p /home/vcap/app/bin
 
 # -- tar jxf $CACHE_DIR/$FILE_NAME -C $CACHE_DIR
