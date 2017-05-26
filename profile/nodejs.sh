@@ -51,7 +51,9 @@ echo "----"
 
 echo $(cat /home/vcap/app/xvfb/usr/bin/xvfb-run)
 echo "----"
-
+cd /home/vcap/app/bin
+echo " contents of /home/vcap/app/bin is: $(ls)"
+echo "------------------"
 calculate_concurrency
 
 export MEMORY_AVAILABLE=$MEMORY_AVAILABLE
