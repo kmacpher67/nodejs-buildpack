@@ -29,7 +29,8 @@ ARCHIVE_NAME=xvfb
 XAUTH_ARCHIVE_NAME=xauth
 FILE_NAME=xvfb_1.15.1-0ubuntu2.7_amd64.deb
 XAUTH_FILE_NAME=xauth_1.0.7-1ubuntu1_amd64.deb
-BUILDPACK_XVFB_PACKAGE=http://archive.ubuntu.com/ubuntu/pool/main/x/xorg-server/xvfb_1.15.1-0ubuntu2.7_amd64.deb
+# BUILDPACK_XVFB_PACKAGE=http://archive.ubuntu.com/ubuntu/pool/main/x/xorg-server/xvfb_1.15.1-0ubuntu2.7_amd64.deb
+BUILDPACK_XVFB_PACKAGE=http://archive.ubuntu.com/ubuntu/pool/main/x/xorg/xserver-xorg-input-all_7.6+12ubuntu1_amd64.deb
 BUILDPACK_XAUTH_PACKAGE=http://archive.ubuntu.com/ubuntu/pool/main/x/xauth/xauth_1.0.7-1ubuntu1_amd64.deb
 
 mkdir -p $CACHE_DIR
