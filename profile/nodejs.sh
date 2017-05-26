@@ -36,7 +36,7 @@ echo " "
 echo "nodejs.sh path= $PATH" 
 echo " "
 echo "----"
-sed -i'' 's/if ! which xauth >\/dev\/null; then error "xauth command not found" exit 3 fi/d' "/home/vcap/app/xvfb/usr/bin/xvfb-run"
+sed -i'' 's/if ! which xauth >\/dev\/null; then error "xauth command not found" exit 3 fi//d' "/home/vcap/app/xvfb/usr/bin/xvfb-run"
 
 echo $(cat /home/vcap/app/xvfb/usr/bin/xvfb-run)
 echo "----"
