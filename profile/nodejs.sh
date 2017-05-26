@@ -51,6 +51,8 @@ echo "----"
 
 echo $(cat /home/vcap/app/xvfb/usr/bin/xvfb-run)
 echo "----"
+echo $(cat /home/vcap/app/xauth/usr/bin/xauth)
+echo "----"
 cd /home/vcap/app/bin
 echo " contents of /home/vcap/app/bin is: $(ls)"
 echo "------------------"
