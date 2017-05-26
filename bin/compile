@@ -21,17 +21,17 @@ $BP_DIR/compile-extensions/bin/check_stack_support
 
 echo "ENV_DIR value = $ENV_DIR"
 
-# # config
-# # http://orm-buildpack.s3.amazonaws.com/Xvfb.tar.gz
-# echo "starting XVFB install Buildpack URL xvfb.tar.bz2"
-# # Buildpack URL
-# ARCHIVE_NAME=xvfb
-# XAUTH_ARCHIVE_NAME=xauth
-# FILE_NAME=xvfb_1.15.1-0ubuntu2.7_amd64.deb
-# XAUTH_FILE_NAME=xauth_1.0.7-1ubuntu1_amd64.deb
-# # BUILDPACK_XVFB_PACKAGE=http://archive.ubuntu.com/ubuntu/pool/main/x/xorg-server/xvfb_1.15.1-0ubuntu2.7_amd64.deb
+# config
+# http://orm-buildpack.s3.amazonaws.com/Xvfb.tar.gz
+echo "starting XVFB install Buildpack URL xvfb.tar.bz2"
+# Buildpack URL
+ARCHIVE_NAME=xvfb
+XAUTH_ARCHIVE_NAME=xauth
+FILE_NAME=xvfb_1.15.1-0ubuntu2.7_amd64.deb
+XAUTH_FILE_NAME=xauth_1.0.7-1ubuntu1_amd64.deb
+BUILDPACK_XVFB_PACKAGE=http://archive.ubuntu.com/ubuntu/pool/main/x/xorg-server/xvfb_1.15.1-0ubuntu2.7_amd64.deb
 # BUILDPACK_XVFB_PACKAGE=http://archive.ubuntu.com/ubuntu/pool/main/x/xorg/xserver-xorg-input-all_7.6+12ubuntu1_amd64.deb
-# BUILDPACK_XAUTH_PACKAGE=http://archive.ubuntu.com/ubuntu/pool/main/x/xauth/xauth_1.0.7-1ubuntu1_amd64.deb
+BUILDPACK_XAUTH_PACKAGE=http://archive.ubuntu.com/ubuntu/pool/main/x/xauth/xauth_1.0.7-1ubuntu1_amd64.deb
 
 # mkdir -p $CACHE_DIR
 # if ! [ -e $CACHE_DIR/$FILE_NAME ]; then
@@ -46,13 +46,13 @@ echo "ENV_DIR value = $ENV_DIR"
 
 # echo "-----> Extracting XVFB binaries to ${BUILD_DIR}/$ARCHIVE_NAME"
 
-# mkdir -p $CACHE_DIR/$ARCHIVE_NAME
-# mkdir -p $CACHE_DIR/$XAUTH_ARCHIVE_NAME
-# mkdir -p /home/vcap/app/$ARCHIVE_NAME
-# mkdir -p /home/vcap/app/$XAUTH_ARCHIVE_NAME
-# mkdir -p $BUILD_DIR/$ARCHIVE_NAME
-# mkdir -p $BUILD_DIR/$XAUTH_ARCHIVE_NAME
-# mkdir -p /home/vcap/app/bin
+mkdir -p $CACHE_DIR/$ARCHIVE_NAME
+mkdir -p $CACHE_DIR/$XAUTH_ARCHIVE_NAME
+mkdir -p /home/vcap/app/$ARCHIVE_NAME
+mkdir -p /home/vcap/app/$XAUTH_ARCHIVE_NAME
+mkdir -p $BUILD_DIR/$ARCHIVE_NAME
+mkdir -p $BUILD_DIR/$XAUTH_ARCHIVE_NAME
+mkdir -p /home/vcap/app/bin
 
 # # -- tar jxf $CACHE_DIR/$FILE_NAME -C $CACHE_DIR
 # dpkg -x $CACHE_DIR/$FILE_NAME $CACHE_DIR/$ARCHIVE_NAME
