@@ -33,7 +33,7 @@ BUILDPACK_XVFB_PACKAGE=http://archive.ubuntu.com/ubuntu/pool/main/x/xorg-server/
 # BUILDPACK_XVFB_PACKAGE=http://archive.ubuntu.com/ubuntu/pool/main/x/xorg/xserver-xorg-input-all_7.6+12ubuntu1_amd64.deb
 BUILDPACK_XAUTH_PACKAGE=http://archive.ubuntu.com/ubuntu/pool/main/x/xauth/xauth_1.0.7-1ubuntu1_amd64.deb
 
-# mkdir -p $CACHE_DIR
+mkdir -p $CACHE_DIR
 # if ! [ -e $CACHE_DIR/$FILE_NAME ]; then
 #   echo "-----> Fetching XVFB binaries at ${BUILDPACK_XVFB_PACKAGE}"
 #   curl $BUILDPACK_XVFB_PACKAGE -s -o $CACHE_DIR/$FILE_NAME
