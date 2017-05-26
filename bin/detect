@@ -2,9 +2,9 @@
 # bin/detect <build-dir>
 
 if [ -f $1/Aptfile ]; then
-  echo "Apt is working " && exit 0
+  echo "Apt is working cause the AptFile is present " && exit 0
 else
-  echo "HOLY CHOW detect where is this `find ./ -name \"Aptfile\"` "
+  echo "HOLY CHOW detect AptFile where is this `find ./ -name \"Aptfile\"` "
 fi
 
 BP=$("dirname $("dirname $0")")
