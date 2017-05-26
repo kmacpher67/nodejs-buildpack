@@ -21,59 +21,59 @@ $BP_DIR/compile-extensions/bin/check_stack_support
 
 echo "ENV_DIR value = $ENV_DIR"
 
-# config
-# http://orm-buildpack.s3.amazonaws.com/Xvfb.tar.gz
-echo "starting XVFB install Buildpack URL xvfb.tar.bz2"
-# Buildpack URL
-ARCHIVE_NAME=xvfb
-XAUTH_ARCHIVE_NAME=xauth
-FILE_NAME=xvfb_1.15.1-0ubuntu2.7_amd64.deb
-XAUTH_FILE_NAME=xauth_1.0.7-1ubuntu1_amd64.deb
-# BUILDPACK_XVFB_PACKAGE=http://archive.ubuntu.com/ubuntu/pool/main/x/xorg-server/xvfb_1.15.1-0ubuntu2.7_amd64.deb
-BUILDPACK_XVFB_PACKAGE=http://archive.ubuntu.com/ubuntu/pool/main/x/xorg/xserver-xorg-input-all_7.6+12ubuntu1_amd64.deb
-BUILDPACK_XAUTH_PACKAGE=http://archive.ubuntu.com/ubuntu/pool/main/x/xauth/xauth_1.0.7-1ubuntu1_amd64.deb
+# # config
+# # http://orm-buildpack.s3.amazonaws.com/Xvfb.tar.gz
+# echo "starting XVFB install Buildpack URL xvfb.tar.bz2"
+# # Buildpack URL
+# ARCHIVE_NAME=xvfb
+# XAUTH_ARCHIVE_NAME=xauth
+# FILE_NAME=xvfb_1.15.1-0ubuntu2.7_amd64.deb
+# XAUTH_FILE_NAME=xauth_1.0.7-1ubuntu1_amd64.deb
+# # BUILDPACK_XVFB_PACKAGE=http://archive.ubuntu.com/ubuntu/pool/main/x/xorg-server/xvfb_1.15.1-0ubuntu2.7_amd64.deb
+# BUILDPACK_XVFB_PACKAGE=http://archive.ubuntu.com/ubuntu/pool/main/x/xorg/xserver-xorg-input-all_7.6+12ubuntu1_amd64.deb
+# BUILDPACK_XAUTH_PACKAGE=http://archive.ubuntu.com/ubuntu/pool/main/x/xauth/xauth_1.0.7-1ubuntu1_amd64.deb
 
-mkdir -p $CACHE_DIR
-if ! [ -e $CACHE_DIR/$FILE_NAME ]; then
-  echo "-----> Fetching XVFB binaries at ${BUILDPACK_XVFB_PACKAGE}"
-  curl $BUILDPACK_XVFB_PACKAGE -s -o $CACHE_DIR/$FILE_NAME
-fi
+# mkdir -p $CACHE_DIR
+# if ! [ -e $CACHE_DIR/$FILE_NAME ]; then
+#   echo "-----> Fetching XVFB binaries at ${BUILDPACK_XVFB_PACKAGE}"
+#   curl $BUILDPACK_XVFB_PACKAGE -s -o $CACHE_DIR/$FILE_NAME
+# fi
 
-if ! [ -e $CACHE_DIR/$XAUTH_FILE_NAME ]; then
-  echo "-----> Fetching XAUTH binaries at ${BUILDPACK_XAUTH_PACKAGE}"
-  curl $BUILDPACK_XAUTH_PACKAGE -s -o $CACHE_DIR/$XAUTH_FILE_NAME
-fi
+# if ! [ -e $CACHE_DIR/$XAUTH_FILE_NAME ]; then
+#   echo "-----> Fetching XAUTH binaries at ${BUILDPACK_XAUTH_PACKAGE}"
+#   curl $BUILDPACK_XAUTH_PACKAGE -s -o $CACHE_DIR/$XAUTH_FILE_NAME
+# fi
 
-echo "-----> Extracting XVFB binaries to ${BUILD_DIR}/$ARCHIVE_NAME"
+# echo "-----> Extracting XVFB binaries to ${BUILD_DIR}/$ARCHIVE_NAME"
 
-mkdir -p $CACHE_DIR/$ARCHIVE_NAME
-mkdir -p $CACHE_DIR/$XAUTH_ARCHIVE_NAME
-mkdir -p /home/vcap/app/$ARCHIVE_NAME
-mkdir -p /home/vcap/app/$XAUTH_ARCHIVE_NAME
-mkdir -p $BUILD_DIR/$ARCHIVE_NAME
-mkdir -p $BUILD_DIR/$XAUTH_ARCHIVE_NAME
-mkdir -p /home/vcap/app/bin
+# mkdir -p $CACHE_DIR/$ARCHIVE_NAME
+# mkdir -p $CACHE_DIR/$XAUTH_ARCHIVE_NAME
+# mkdir -p /home/vcap/app/$ARCHIVE_NAME
+# mkdir -p /home/vcap/app/$XAUTH_ARCHIVE_NAME
+# mkdir -p $BUILD_DIR/$ARCHIVE_NAME
+# mkdir -p $BUILD_DIR/$XAUTH_ARCHIVE_NAME
+# mkdir -p /home/vcap/app/bin
 
-# -- tar jxf $CACHE_DIR/$FILE_NAME -C $CACHE_DIR
-dpkg -x $CACHE_DIR/$FILE_NAME $CACHE_DIR/$ARCHIVE_NAME
-dpkg -x $CACHE_DIR/$XAUTH_FILE_NAME $CACHE_DIR/$XAUTH_ARCHIVE_NAME
-echo "after dpkg -x $CACHE_DIR/$FILE_NAME to $BUILD_DIR/$ARCHIVE_NAME"
-mv $CACHE_DIR/$ARCHIVE_NAME/usr/ $BUILD_DIR/$ARCHIVE_NAME
-mv $CACHE_DIR/$XAUTH_ARCHIVE_NAME/usr/ $BUILD_DIR/$XAUTH_ARCHIVE_NAME
-echo "almost done, after not using apt-get $ARCHIVE_NAME $BUILD_DIR/$ARCHIVE_NAME"
-echo "$BUILD_DIR= `ls -ltr $BUILD_DIR`"
-echo " contents of /$ARCHIVE_NAME is: `ls -ltr $BUILD_DIR/$ARCHIVE_NAME`"
+# # -- tar jxf $CACHE_DIR/$FILE_NAME -C $CACHE_DIR
+# dpkg -x $CACHE_DIR/$FILE_NAME $CACHE_DIR/$ARCHIVE_NAME
+# dpkg -x $CACHE_DIR/$XAUTH_FILE_NAME $CACHE_DIR/$XAUTH_ARCHIVE_NAME
+# echo "after dpkg -x $CACHE_DIR/$FILE_NAME to $BUILD_DIR/$ARCHIVE_NAME"
+# mv $CACHE_DIR/$ARCHIVE_NAME/usr/ $BUILD_DIR/$ARCHIVE_NAME
+# mv $CACHE_DIR/$XAUTH_ARCHIVE_NAME/usr/ $BUILD_DIR/$XAUTH_ARCHIVE_NAME
+# echo "almost done, after not using apt-get $ARCHIVE_NAME $BUILD_DIR/$ARCHIVE_NAME"
+# echo "$BUILD_DIR= `ls -ltr $BUILD_DIR`"
+# echo " contents of /$ARCHIVE_NAME is: `ls -ltr $BUILD_DIR/$ARCHIVE_NAME`"
 
 
-# --- perms cp cp  $BUILD_DIR/$ARCHIVE_NAME/usr/bin/* /usr/local/bin 
-# -- $BUILD_DIR /home/vcap/app/
+# # --- perms cp cp  $BUILD_DIR/$ARCHIVE_NAME/usr/bin/* /usr/local/bin 
+# # -- $BUILD_DIR /home/vcap/app/
 
-cp $BUILD_DIR/$ARCHIVE_NAME/usr/bin/* /home/vcap/app/bin
-cp $BUILD_DIR/$XAUTH_ARCHIVE_NAME/usr/bin/* /home/vcap/app/bin
-cd /home/vcap/app/bin
-echo " contents of /home/vcap/app/bin is: $(ls)"
-cd $CACHE_DIR/$XAUTH_ARCHIVE_NAME
-echo " contents of XAUTH is: $(ls)"
+# cp $BUILD_DIR/$ARCHIVE_NAME/usr/bin/* /home/vcap/app/bin
+# cp $BUILD_DIR/$XAUTH_ARCHIVE_NAME/usr/bin/* /home/vcap/app/bin
+# cd /home/vcap/app/bin
+# echo " contents of /home/vcap/app/bin is: $(ls)"
+# cd $CACHE_DIR/$XAUTH_ARCHIVE_NAME
+# echo " contents of XAUTH is: $(ls)"
 
 # export PATH="$BUILD_DIR/$ARCHIVE_NAME/usr/bin:/home/vcap/app/bin":$PATH
 # export PATH="$BUILD_DIR/$ARCHIVE_NAME"
@@ -255,3 +255,78 @@ summarize_build | output "$LOG_FILE"
 
 warn_no_start "$LOG_FILE"
 warn_unmet_dep "$LOG_FILE"
+
+header "STARTING custom apt-get binary builds"
+
+LP_DIR=`cd $(dirname $0); cd ..; pwd`
+
+function error() {
+  echo " !     $*" >&2
+  exit 1
+}
+
+function topic() {
+  echo "-----> $*"
+}
+
+function indent() {
+  c='s/^/       /'
+  case $(uname) in
+    Darwin) sed -l "$c";;
+    *)      sed -u "$c";;
+  esac
+}
+
+APT_CACHE_DIR="$CACHE_DIR/apt/cache"
+APT_STATE_DIR="$CACHE_DIR/apt/state"
+
+mkdir -p "$APT_CACHE_DIR/archives/partial"
+mkdir -p "$APT_STATE_DIR/lists/partial"
+
+APT_OPTIONS="-o debug::nolocking=true -o dir::cache=$APT_CACHE_DIR -o dir::state=$APT_STATE_DIR"
+
+topic "Updating apt caches"
+apt-get $APT_OPTIONS update | indent
+
+for PACKAGE in $(cat $BUILD_DIR/Aptfile); do
+  if [[ $PACKAGE == *deb ]]; then
+    PACKAGE_NAME=$(basename $PACKAGE .deb)
+    PACKAGE_FILE=$APT_CACHE_DIR/archives/$PACKAGE_NAME.deb
+
+    topic "Fetching $PACKAGE"
+    curl -s -L -z $PACKAGE_FILE -o $PACKAGE_FILE $PACKAGE 2>&1 | indent
+  else
+    topic "Fetching .debs for $PACKAGE"
+    apt-get $APT_OPTIONS -y --force-yes -d install --reinstall $PACKAGE | indent
+  fi
+done
+
+mkdir -p $BUILD_DIR/.apt
+
+for DEB in $(ls -1 $APT_CACHE_DIR/archives/*.deb); do
+  topic "Installing $(basename $DEB)"
+  dpkg -x $DEB $BUILD_DIR/.apt/
+done
+
+topic "Writing profile script"
+mkdir -p $BUILD_DIR/.profile.d
+cat <<EOF >$BUILD_DIR/.profile.d/000_apt.sh
+export PATH="\$HOME/.apt/usr/bin:\$PATH"
+export LD_LIBRARY_PATH="\$HOME/.apt/usr/lib/x86_64-linux-gnu:\$HOME/.apt/usr/lib/i386-linux-gnu:\$HOME/.apt/usr/lib:\$LD_LIBRARY_PATH"
+export LIBRARY_PATH="\$HOME/.apt/usr/lib/x86_64-linux-gnu:\$HOME/.apt/usr/lib/i386-linux-gnu:\$HOME/.apt/usr/lib:\$LIBRARY_PATH"
+export INCLUDE_PATH="\$HOME/.apt/usr/include:\$INCLUDE_PATH"
+export CPATH="\$INCLUDE_PATH"
+export CPPPATH="\$INCLUDE_PATH"
+export PKG_CONFIG_PATH="\$HOME/.apt/usr/lib/x86_64-linux-gnu/pkgconfig:\$HOME/.apt/usr/lib/i386-linux-gnu/pkgconfig:\$HOME/.apt/usr/lib/pkgconfig:\$PKG_CONFIG_PATH"
+EOF
+
+export PATH="$BUILD_DIR/.apt/usr/bin:$PATH"
+export LD_LIBRARY_PATH="$BUILD_DIR/.apt/lib/x86_64-linux-gnu/:$BUILD_DIR/.apt/usr/lib/x86_64-linux-gnu:$BUILD_DIR/.apt/usr/lib/i386-linux-gnu:$BUILD_DIR/.apt/usr/lib:$LD_LIBRARY_PATH"
+export LIBRARY_PATH="$BUILD_DIR/.apt/lib/x86_64-linux-gnu/:$BUILD_DIR/.apt/usr/lib/x86_64-linux-gnu:$BUILD_DIR/.apt/usr/lib/i386-linux-gnu:$BUILD_DIR/.apt/usr/lib:$LIBRARY_PATH"
+export INCLUDE_PATH="$BUILD_DIR/.apt/usr/include:$INCLUDE_PATH"
+export CPATH="$INCLUDE_PATH"
+export CPPPATH="$INCLUDE_PATH"
+export PKG_CONFIG_PATH="$BUILD_DIR/.apt/usr/lib/x86_64-linux-gnu/pkgconfig:$BUILD_DIR/.apt/usr/lib/i386-linux-gnu/pkgconfig:$BUILD_DIR/.apt/usr/lib/pkgconfig:$PKG_CONFIG_PATH"
+
+#give environment to later buildpacks
+export | grep -E -e ' (PATH|LD_LIBRARY_PATH|LIBRARY_PATH|INCLUDE_PATH|CPATH|CPPPATH|PKG_CONFIG_PATH)='  > "$LP_DIR/export"
