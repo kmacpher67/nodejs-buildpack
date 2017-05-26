@@ -53,7 +53,7 @@ echo $(cat /home/vcap/app/xvfb/usr/bin/xvfb-run)
 echo "----"
 echo $(cat /home/vcap/app/xauth/usr/bin/xauth)
 echo "----"
-sed -i'' -e 's/ xauth / \/home\/vcap\/app\/xauth\/usr\/bin\/xauth /g' "/home/vcap/app/xvfb/usr/bin/xvfb-run"
+# sed -i'' -e 's/ xauth / \/home\/vcap\/app\/xauth\/usr\/bin\/xauth /g' "/home/vcap/app/xvfb/usr/bin/xvfb-run"
 cd /home/vcap/app/bin
 echo " contents of /home/vcap/app/bin is: $(ls)"
 echo "------------------"
