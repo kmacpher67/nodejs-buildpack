@@ -235,6 +235,13 @@ if [ -z ${INCLUDE_PATH:-} ];
  INCLUDE_PATH="/usr/include/";
 fi
 
+# PKG_CONFIG_PATH
+if [ -z ${PKG_CONFIG_PATH:-} ];
+ then
+ echo "PKG_CONFIG_PATH /usr/lib/pkgconfig"
+ PKG_CONFIG_PATH="/usr/lib/pkgconfig";
+fi
+
 topic "Writing profile script"
 mkdir -p $BUILD_DIR/.profile.d
 cat <<EOF >$BUILD_DIR/.profile.d/000_apt.sh
