@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 # bin/detect <build-dir>
 
+if [ -f $1/Aptfile ]; then
+  echo "Apt is working " && exit 0
+else
+  echo "HOLY CHOW detect where is this `find ./ -name \"Aptfile\"` "
+fi
+
 BP=$("dirname $("dirname $0")")
 if [ -f "$1/package.json" ]; then
   echo "node.js $("cat $BP/VERSION")"
