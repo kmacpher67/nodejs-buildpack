@@ -57,6 +57,8 @@ echo "----"
 cd /home/vcap/app/bin
 echo " contents of /home/vcap/app/bin is: $(ls)"
 echo "------------------"
+echo $(cat /home/vcap/app/.heroku/node/bin/npm-debug.log)
+echo "------------------"
 calculate_concurrency
 
 export MEMORY_AVAILABLE=$MEMORY_AVAILABLE
