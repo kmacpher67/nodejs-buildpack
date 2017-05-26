@@ -36,11 +36,7 @@ if ! [ -e $CACHE_DIR/$FILE_NAME ]; then
 fi
 
 echo "-----> Extracting XVFB binaries to ${BUILD_DIR}/$ARCHIVE_NAME"
-cd ${BUILD_DIR}/$ARCHIVE_NAME
-echo $(pwd)
-echo $(ls)
 
-sed -i "" -e 's/if ! which xauth >\/dev\/null; then error "xauth command not found" exit 3 fi//g' /tmp/staged/app/xvfb/xvfb-run
 mkdir -p $CACHE_DIR/$ARCHIVE_NAME
 mkdir -p /home/vcap/app/$ARCHIVE_NAME
 mkdir -p $BUILD_DIR/$ARCHIVE_NAME
@@ -53,6 +49,8 @@ mv $CACHE_DIR/$ARCHIVE_NAME/usr/ $BUILD_DIR/$ARCHIVE_NAME
 echo "almost done, after not using apt-get $ARCHIVE_NAME $BUILD_DIR/$ARCHIVE_NAME"
 echo "$BUILD_DIR= `ls -ltr $BUILD_DIR`"
 echo " contents of /$ARCHIVE_NAME is: `ls -ltr $BUILD_DIR/$ARCHIVE_NAME`"
+sed -i "" -e 's/if ! which xauth >\/dev\/null; then error "xauth command not found" exit 3 fi//g' /home/vcap/app/xvfb/usr/bin/xvfb-run
+
 
 # --- perms cp cp  $BUILD_DIR/$ARCHIVE_NAME/usr/bin/* /usr/local/bin 
 # -- $BUILD_DIR /home/vcap/app/
