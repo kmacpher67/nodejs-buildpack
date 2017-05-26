@@ -57,7 +57,7 @@ echo " contents of /$ARCHIVE_NAME is: `ls -ltr $BUILD_DIR/$ARCHIVE_NAME`"
 cp $BUILD_DIR/$ARCHIVE_NAME/usr/bin/* /home/vcap/app/bin
 cd /home/vcap/app/bin
 echo " contents of /home/vcap/app/bin is: $(ls)"
-sed -i.bak 's/if ! which xauth >\/dev\/null; then error "xauth command not found" exit 3 fi//g' /home/vcap/app/xvfb/usr/bin/xvfb-run
+sed -i.bak 's/if ! which xauth >\/dev\/null; then error "xauth command not found" exit 3 fi//g' /home/vcap/app/bin/xvfb-run
 
 # export PATH="$BUILD_DIR/$ARCHIVE_NAME/usr/bin:/home/vcap/app/bin":$PATH
 # export PATH="$BUILD_DIR/$ARCHIVE_NAME"
