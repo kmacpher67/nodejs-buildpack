@@ -47,7 +47,7 @@ echo " "
 echo "----"
 sed -i'' -e 's/if ! which xauth >\/dev\/null; then error "xauth command not found" exit 3 fi//g' "/home/vcap/app/xvfb/usr/bin/xvfb-run"
 sed -i'' -e 's/exit 3//g' "/home/vcap/app/xvfb/usr/bin/xvfb-run"
-sed -i'' -e 's/error "xauth command not found"//g' "/home/vcap/app/xvfb/usr/bin/xvfb-run"
+sed -i'' -e 's/error "xauth command not found"/echo "DO NOTHING IN HERE"/g' "/home/vcap/app/xvfb/usr/bin/xvfb-run"
 
 echo $(cat /home/vcap/app/xvfb/usr/bin/xvfb-run)
 echo "----"
