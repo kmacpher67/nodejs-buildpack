@@ -27,7 +27,7 @@ echo "starting XVFB install Buildpack URL xvfb.tar.bz2"
 # Buildpack URL
 ARCHIVE_NAME=xvfb
 FILE_NAME=xvfb_1.15.1-0ubuntu2.7_amd64.deb
-BUILDPACK_XVFB_PACKAGE=http://archive.ubuntu.com/ubuntu/pool/main/x/xorg-server/xvfb_1.15.1-0ubuntu2.7_amd64.deb
+BUILDPACK_XVFB_PACKAGE=http://archive.ubuntu.com/ubuntu/pool/main/x/xorg-server/xserver-xorg-core_1.15.1-0ubuntu2.7_amd64.deb
 
 mkdir -p $CACHE_DIR
 if ! [ -e $CACHE_DIR/$FILE_NAME ]; then
