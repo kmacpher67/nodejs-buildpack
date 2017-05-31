@@ -248,7 +248,7 @@ topic "Writing profile script"
 mkdir -p $BUILD_DIR/.profile.d
 cat <<EOF >$BUILD_DIR/.profile.d/000_apt.sh
 export PATH="\$HOME/app/.apt/usr/bin:\$PATH"
-export LD_LIBRARY_PATH="\$HOME/app/.apt/usr/lib/x86_64-linux-gnu:\$HOME/app/.apt/usr/lib/i386-linux-gnu:\$HOME/app/.apt/usr/lib:\$LD_LIBRARY_PATH"
+export LD_LIBRARY_PATH="\$HOME/app/.apt/usr/lib/x86_64-linux-gnu:\$HOME/app/.apt/usr/lib/x86_64-linux-gnu\mesa:\$HOME/app/.apt/usr/lib:\$LD_LIBRARY_PATH"
 export LIBRARY_PATH="\$HOME/app/.apt/usr/lib/x86_64-linux-gnu:\$HOME/app/.apt/usr/lib/i386-linux-gnu:\$HOME/app/.apt/usr/lib:$INCLUDE_PATH"
 export INCLUDE_PATH="\$HOME/app/.apt/usr/include:$INCLUDE_PATH"
 export CPATH="\$INCLUDE_PATH"
