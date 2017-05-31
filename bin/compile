@@ -206,7 +206,7 @@ for PACKAGE in $(cat $BUILD_DIR/Aptfile); do
     curl -s -L -z $PACKAGE_FILE -o $PACKAGE_FILE $PACKAGE 2>&1 | indent
   else
     topic "Fetching .debs for $PACKAGE"
-    apt-get $APT_OPTIONS -y --force-yes -d install --reinstall $PACKAGE | indent
+    apt-get $APT_OPTIONS -y -$PACKAGE | indent
   fi
 done
 
@@ -247,13 +247,13 @@ fi
 topic "Writing profile script"
 mkdir -p $BUILD_DIR/.profile.d
 cat <<EOF >$BUILD_DIR/.profile.d/000_apt.sh
-export PATH="\$HOME/.apt/usr/bin:\$PATH"
-export LD_LIBRARY_PATH="\$HOME/.apt/usr/lib/x86_64-linux-gnu:\$HOME/.apt/usr/lib/i386-linux-gnu:\$HOME/.apt/usr/lib:\$LD_LIBRARY_PATH"
-export LIBRARY_PATH="\$HOME/.apt/usr/lib/x86_64-linux-gnu:\$HOME/.apt/usr/lib/i386-linux-gnu:\$HOME/.apt/usr/lib:$INCLUDE_PATH"
-export INCLUDE_PATH="\$HOME/.apt/usr/include:$INCLUDE_PATH"
+export PATH="\$HOME/app/.apt/usr/bin:\$PATH"
+export LD_LIBRARY_PATH="\$HOME/app/.apt/usr/lib/x86_64-linux-gnu:\$HOME/app/.apt/usr/lib/i386-linux-gnu:\$HOME/app/.apt/usr/lib:\$LD_LIBRARY_PATH"
+export LIBRARY_PATH="\$HOME/app/.apt/usr/lib/x86_64-linux-gnu:\$HOME/app/.apt/usr/lib/i386-linux-gnu:\$HOME/app/.apt/usr/lib:$INCLUDE_PATH"
+export INCLUDE_PATH="\$HOME/app/.apt/usr/include:$INCLUDE_PATH"
 export CPATH="\$INCLUDE_PATH"
 export CPPPATH="\$INCLUDE_PATH"
-export PKG_CONFIG_PATH="\$HOME/.apt/usr/lib/x86_64-linux-gnu/pkgconfig:\$HOME/.apt/usr/lib/i386-linux-gnu/pkgconfig:\$HOME/.apt/usr/lib/pkgconfig:$PKG_CONFIG_PATH"
+export PKG_CONFIG_PATH="\$HOME/app/.apt/usr/lib/x86_64-linux-gnu/pkgconfig:\$HOME/app/.apt/usr/lib/i386-linux-gnu/pkgconfig:\$HOME/app/.apt/usr/lib/pkgconfig:$PKG_CONFIG_PATH"
 EOF
 
 topic "Writing local this $BUILD_DIR scripts"
