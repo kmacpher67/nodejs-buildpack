@@ -4,5 +4,5 @@
 cat << EOF
 addons: []
 default_process_types:
-  web: ". app/.profile.d/000_apt.sh; npm start"
+  web: "ls -ltr; . ./.profile.d/000_apt.sh; xvfb-run -e /dev/stdout npm start"
 EOF
