@@ -23,6 +23,7 @@ LP_DIR=`cd $(dirname $0); cd ..; pwd`
 mkdir -p "$BUILD_DIR/.heroku/node/"
 cd $BUILD_DIR
 export PATH="$BUILD_DIR/.heroku/node/bin":$PATH
+export DISPLAY=:99
 
 # CF Common
 export BUILDPACK_PATH=$BP_DIR
