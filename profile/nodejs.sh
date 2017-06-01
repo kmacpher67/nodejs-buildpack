@@ -26,9 +26,10 @@ detect_memory() {
   esac
 }
 
-export PATH="$HOME/.heroku/node/bin:$PATH:$HOME/bin:$HOME/node_modules/.bin"
+export PATH="$HOME/.heroku/node/bin:$PATH:$HOME/bin:$HOME/node_modules/.bin:\$HOME/app/.apt/usr/bin:"
 export NODE_HOME="$HOME/.heroku/node"
 export NODE_ENV=${NODE_ENV:-production}
+export LD_LIBRARY_PATH="/usr/lib:\$HOME/app/.apt/usr/lib/x86_64-linux-gnu:\$HOME/app/.apt/usr/lib/x86_64-linux-gnu/mesa:\$HOME/app/.apt/usr/lib/i386-linux-gnu:"
 
 calculate_concurrency
 
