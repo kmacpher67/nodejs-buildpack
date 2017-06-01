@@ -4,5 +4,5 @@
 cat << EOF
 addons: []
 default_process_types:
-  web: "pwd; ls -ltra; DISPLAY=:99; . ~/.profile.d/000_apt.sh; xvfb-run --auto-servernum --server-args=\"-screen 0 1024x768x24\" -e /dev/stdout npm run startSimple"
+  web: "pwd; ls -ltra; export DISPLAY=:99; . ~/.profile.d/000_apt.sh; xvfb-run --auto-servernum --server-args=\"-screen 0 1024x768x24\" -e /dev/stdout npm run startSimple"
 EOF
