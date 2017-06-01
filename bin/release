@@ -5,5 +5,5 @@ cat << EOF
 addons: []
 default_process_types:
   console: "ls -ltra; pwd; . ~/.profile.d/000_apt.sh; Xvfb"
-  web: "pwd; ls -ltra; . ~/.profile.d/000_apt.sh; xvfb-run --auto-servernum -e /dev/stdout npm run startSimple"
+  web: "pwd; ls -ltra; DISPLAY=:99; . ~/.profile.d/000_apt.sh; xvfb-run --auto-servernum -e /dev/stdout npm run startSimple"
 EOF
