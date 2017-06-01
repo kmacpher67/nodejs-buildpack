@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # bin/release <build-dir>
-echo "running bin/release <build-dir>= $1"
+# "running bin/release <build-dir>= $1"
 cat << EOF
 addons: []
 default_process_types:
-  web: "ls -ltr; pwd; . ~/app/.profile.d/000_apt.sh; xvfb-run -e /dev/stdout npm start"
+  console: "ls -ltr; pwd; . ~/app/.profile.d/000_apt.sh; Xvfb"
+  web: "pwd; . ~/app/.profile.d/000_apt.sh; xvfb-run -e /dev/stdout npm start"
 EOF
