@@ -10,6 +10,10 @@ unset GIT_DIR     # Avoid GIT_DIR leak from previous build steps
 
 DEFAULT_CACHE="node_modules bower_components"
 
+function topic() {
+  echo "-----> $*"
+}
+
 ### Configure directories
 
 BUILD_DIR=${1:-}
@@ -239,10 +243,6 @@ header "Build starting apt-get heroku integration"
 function error() {
   echo " !     $*" >&2
   exit 1
-}
-
-function topic() {
-  echo "-----> $*"
 }
 
 function indent() {
