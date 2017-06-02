@@ -76,6 +76,7 @@ export CPATH="\$INCLUDE_PATH"
 export CPPPATH="\$INCLUDE_PATH"
 export PKG_CONFIG_PATH="\$HOME/.apt/usr/lib/x86_64-linux-gnu/pkgconfig:\$HOME/.apt/usr/lib/i386-linux-gnu/pkgconfig:\$HOME/.apt/usr/lib/pkgconfig:$PKG_CONFIG_PATH"
 export DISPLAY=:99
+Xvfb -ac :99 -screen 0 1280x1024x16 -nolisten tcp -auth /home/vcap/tmp/xvfb-run.Py4FsC/Xauthority &
 EOF
 
 topic "Writing profile script .profile.d/001_apt.sh"
