@@ -4,6 +4,5 @@
 cat << EOF
 addons: []
 default_process_types:
-  console: ". ~/.profile.d/000_apt.sh; Xvfb -ac :99 -screen 0 1280x1024x16 -nolisten tcp -auth /home/vcap/tmp/xvfb-run.Py4FsC/Xauthority &"
-  web: ". ~/.profile.d/000_apt.sh; Xvfb -ac :99 -screen 0 1280x1024x16 -nolisten tcp -auth /home/vcap/tmp/xvfb-run.Py4FsC/Xauthority npm start"
+  web: ". ~/.profile.d/000_apt.sh; Xvfb -ac :99 -screen 0 1280x1024x16 -nolisten tcp -auth /home/vcap/tmp/xvfb-run.Py4FsC/Xauthority&; npm start"
 EOF
