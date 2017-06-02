@@ -68,7 +68,8 @@ fi
 topic "Writing profile script .profile.d/000_apt.sh"
 mkdir -p $BUILD_DIR/.profile.d
 cat <<EOF >$BUILD_DIR/.profile.d/000_apt.sh
-export PATH="\$HOME/.apt/usr/bin:\$PATH"
+export PATH="\$HOME/.apt/usr/bin:\$HOME/.heroku/node/bin:\$HOME/node_modules/.bin:\$PATH"
+export NODE_HOME="\$HOME/.heroku/node"
 export LD_LIBRARY_PATH="\$HOME/.apt/usr/lib/x86_64-linux-gnu:\$HOME/.apt/usr/lib/x86_64-linux-gnu/mesa:\$HOME/.apt/usr/lib/i386-linux-gnu:\$HOME/.apt/usr/lib:\$LD_LIBRARY_PATH"
 export LIBRARY_PATH="\$HOME/.apt/usr/lib/x86_64-linux-gnu:\$HOME/.apt/usr/lib/i386-linux-gnu:\$HOME/.apt/usr/lib:$INCLUDE_PATH"
 export INCLUDE_PATH="\$HOME/.apt/usr/include:$INCLUDE_PATH"
@@ -82,7 +83,8 @@ EOF
 topic "Writing profile script .profile.d/001_apt.sh"
 mkdir -p $BUILD_DIR/.profile.d
 cat <<EOF >$BUILD_DIR/.profile.d/001_apt.sh
-export PATH="\$HOME/app/.apt/usr/bin:\$PATH"
+export PATH="\$HOME/app/.apt/usr/bin:\$HOME/app/.heroku/node/bin:\$HOME/app/node_modules/.bin:\$PATH"
+export NODE_HOME="\$HOME/app/.heroku/node"
 export LD_LIBRARY_PATH="\$HOME/app/.apt/usr/lib/x86_64-linux-gnu:\$HOME/app/.apt/usr/lib/x86_64-linux-gnu/mesa:\$HOME/app/.apt/usr/lib/i386-linux-gnu:\$HOME/app/.apt/usr/lib:\$LD_LIBRARY_PATH"
 export LIBRARY_PATH="\$HOME/app/.apt/usr/lib/x86_64-linux-gnu:\$HOME/app/.apt/usr/lib/i386-linux-gnu:\$HOME/app/.apt/usr/lib:$INCLUDE_PATH"
 export INCLUDE_PATH="\$HOME/app/.apt/usr/include:$INCLUDE_PATH"
